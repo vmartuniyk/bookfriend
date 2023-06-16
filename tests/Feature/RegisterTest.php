@@ -11,16 +11,14 @@ it('has errors if the details are not provided')
         ->post('/register')
         ->assertSessionHasErrors(['name','email','password']);
 
-it('register user', function () {
-    $this->post('/register',[
+it('register user')
+    ->tap(function (){
+        $this->post('/register',[
+            'name' => 'John',
+            'email' => 'john@example.com',
+            'password'=>'iamjohngold'
+        ])->assertRedirect('/');
+    })->assertDatabaseHas('users',[
         'name' => 'John',
-        'email' => 'john@example.com',
-        'password'=>'iamjohngold'
-    ])->assertRedirect('/');
-
-   $this->assertDatabaseHas('users',[
-       'name' => 'John',
-       'email' => 'john@example.com'
-   ])->assertAuthenticated();
-
-});
+        'email' => 'john@example.com'
+    ])->assertAuthenticated();
