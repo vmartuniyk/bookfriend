@@ -9,7 +9,7 @@ uses(RefreshDatabase::class);
 it('redirect authenticated user', function () {
    $user = User::factory()->create();
 
-   $this->actingAs($user)
+    actingAs($user)
         ->get('/auth/login')
         ->assertStatus(302);
 });
