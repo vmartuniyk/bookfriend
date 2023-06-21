@@ -7,9 +7,8 @@ use function Pest\Laravel\post;
 uses(RefreshDatabase::class);
 
 it('redirect authenticated user', function () {
-   $user = User::factory()->create();
 
-    actingAs($user)
+    actingAs(User::factory()->create())
         ->get('/auth/login')
         ->assertStatus(302);
 });

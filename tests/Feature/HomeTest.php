@@ -23,5 +23,4 @@ it('show unauthenticated menu items if th user is not signed in', function () {
 
     $this->get('/')
         ->assertSeeText(['Home','Login', 'Register']);
-
 });
