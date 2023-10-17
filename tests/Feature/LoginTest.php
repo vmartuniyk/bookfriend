@@ -7,16 +7,12 @@ use function Pest\Laravel\post;
 uses(RefreshDatabase::class);
 
 it('redirect authenticated user', function () {
-
-    actingAs(User::factory()->create())
-        ->get('/auth/login')
-        ->assertStatus(302);
+    expect(User::factory()->create())->toBeRedirectedFor('auth/login');
 });
+
 it('show error when details are not provider')
     ->post('/login')
     ->assertSessionHasErrors(['email','password']);
-
-
 
 it('logs the user in', function(){
    $user = User::factory()->create([

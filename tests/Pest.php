@@ -48,3 +48,6 @@ function actingAs(Authenticatable $user)
 {
     return test()->actingAS($user);
 }
+expect()->extend('toBeRedirectedFor', function (string $url, string $method = 'get'){
+    return actingAs($this->value)->{$method}($url)->assertStatus(302) ;
+});
