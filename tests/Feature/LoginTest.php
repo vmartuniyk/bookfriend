@@ -6,6 +6,10 @@ use function Pest\Laravel\post;
 
 uses(RefreshDatabase::class);
 
+it('shows login page')
+    ->get('auth/login')
+    ->assertOk();
+
 it('redirect authenticated user', function () {
     expect(User::factory()->create())->toBeRedirectedFor('auth/login');
 });
