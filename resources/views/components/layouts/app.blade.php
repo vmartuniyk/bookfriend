@@ -42,8 +42,12 @@
 
             <ul>
                 <li>
-                    <a href="#" class="font-bold text-lg text-slate-600
-                     hover:text-slate-800 block py-1">Logout</a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button href="#" class="font-bold text-lg text-slate-600
+                     hover:text-slate-800 block py-1">Logout</button>
+                    </form>
+
                 </li>
             </ul>
         @endauth
@@ -57,7 +61,7 @@
             </ul>
             <ul>
                 <li>
-                    <a href="#" class="font-bold text-lg text-slate-600
+                    <a href="/auth/login" class="font-bold text-lg text-slate-600
                  hover:text-slate-800 block py-1">Login</a>
                 </li>
             </ul>
