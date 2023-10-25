@@ -36,3 +36,11 @@ it('required is a title,author,status')
     ->tap(fn () => $this->actingAs($this->user))
     ->post('/books')
     ->assertSessionHasErrors(['title','author','status']);
+
+it('required a valid status')
+    ->tap(fn () => $this->actingAs($this->user))
+    ->post('/books',[
+        'status' => 'RUNNING'
+    ])
+    ->assertSessionHasErrors(['status']);
+
