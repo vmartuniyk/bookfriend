@@ -16,7 +16,7 @@
             <li>
                 <span  class="font-bold text-lg text-slate-600
                  hover:text-slate-800 block py-1">
-                    {{ auth()->user() }}
+                    {{ auth()->user()->name }}
                 </span>
             </li>
             <li>
@@ -31,7 +31,7 @@
                      hover:text-slate-800 block py-1">My Books</a>
                 </li>
                 <li>
-                    <a href="#" class="font-bold text-lg text-slate-600
+                    <a href="/books/create" class="font-bold text-lg text-slate-600
                      hover:text-slate-800 block py-1">Add a book</a>
                 </li>
                 <li>
